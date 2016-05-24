@@ -106,3 +106,51 @@ console.log(isIsogram("aba")); // false
 console.log(isIsogram("moOse")); // false // ignore letter case
 console.log(isIsogram("you didnt even know"));
 console.log(isIsogram("yes im down"));
+
+//Nic's solution
+function isIsogram(str){
+    var cap = str.toUpperCase().split("");
+    var check = [];
+    cap.forEach(function(val){
+        if(check.indexOf(val) === -1){
+            check.push(val);
+        }
+    });
+     if (check.length === cap.length){
+         return true;
+     }
+
+    return false;
+}
+
+//Dominic's solution
+var isogram = function( string ) {
+    string = string.toLowerCase();
+    var array = string.split('');
+    var checked = [];
+
+    for ( var i = 0; i < array.length; i++ ) {
+        if ( checked.indexOf(array[i] ) < 0 ) {
+            checked.push( array[i] );
+        } else {
+            return false;
+        }
+    }
+    return true;
+}
+
+//Tony's solution
+var isogram = function(str){
+ str.toLowerCase();
+ var arr = str.split("");
+ var looped = [];
+
+ for (var i = 0; i < arr.length; i++){
+   if (looped.indexOf(arr[i]) < 0){
+     looped.push(arr[i]);
+   }
+   else{
+     return false;
+   }
+     return true;
+ }
