@@ -1,6 +1,6 @@
 /*
 --------------
-Next Problem (Day 1)
+Next Problem (Wk2-Day 1)
 --------------
 */
 
@@ -68,7 +68,7 @@ ordered ( [4, 9, 42, 22, 56] );
 
 /*
 --------------
-Next Problem (Day 2)
+Next Problem (Wk2-Day 2)
 --------------
 */
 
@@ -154,3 +154,250 @@ var isogram = function(str){
    }
      return true;
  }
+
+ /*
+ --------------
+ Next Problem (Wk2-Day 3)
+ --------------
+ */
+
+ /*
+we want you to extend the built-in Array class with the following methods: square(), cube(), average(), sum(), even() and odd().
+Explanation:
+    square() must return a copy of the array, containing all values squared, the original array must not be changed
+    cube() must return a copy of the array, containing all values cubed, the original array must not be changed
+    average() must return the average of all array values, average() on an empty array must return NaN
+    sum() must return the sum of all array values
+    even() must return an array of all even numbers, the original array must not be changed
+    odd() must return an array of all odd numbers, the original array must not be changed
+var numbers = [1, 2, 3, 4, 5];
+numbers.square(); // must return [1, 4, 9, 16, 25]
+numbers.cube(); // must return [1, 8, 27, 64, 125]
+numbers.average(); // must return 3
+numbers.sum(); // must return 15
+numbers.even(); // must return [2, 4]
+numbers.odd(); // must return [1, 3, 5]
+*/
+
+Array.prototype.square = function() {
+    return this.map(function(item) {
+        return Math.pow(item, 2);
+    });
+}
+
+Array.prototype.cube = function() {
+    return this.map(function(item) {
+        return Math.pow(item, 3);
+    });
+}
+
+Array.prototype.sum = function() {
+    return this.reduce(function(pv, cur) {
+        return pv + cur;
+    });
+}
+
+Array.prototype.average = function() {
+    if (this.length === 0) return NaN;
+
+    return this.sum() / this.length;
+}
+
+Array.prototype.even = function() {
+    return this.filter(function(item) {
+        return item % 2 === 0;
+    });
+}
+
+Array.prototype.odd = function() {
+    return this.filter(function(item) {
+        return item % 2 !== 0;
+    });
+}
+
+//Nic's solution
+// var numbers = [1, 2, 3, 4, 5];
+//
+// Array.prototype.square = function() {
+//     var answer = [];
+//     for (var i = 0; i < this.length; i++) {
+//         answer.push(this[i] * this[i]);
+//     }
+//     return answer;
+// };
+// Array.prototype.cube = function() {
+//     var answer = [];
+//     for (var i = 0; i < this.length; i++) {
+//         answer.push(this[i] * this[i] * this[i]);
+//     }
+//     return answer;
+// };
+// Array.prototype.average = function() {
+//     var answer = 0;
+//     for (var i = 0; i < this.length; i++) {
+//         answer = answer + this[i];
+//     }
+//     return (answer / this.length);
+// };
+// Array.prototype.sum = function() {
+//     var answer = 0;
+//     for (var i = 0; i < this.length; i++) {
+//         answer = answer + this[i];
+//     }
+//     return answer;
+// };
+// Array.prototype.even = function() {
+//     var answer = [];
+//     for (var i = 0; i < this.length; i++) {
+//         if (this[i] % 2 === 0) {
+//             answer.push(this[i]);
+//         }
+//     }
+//     return answer;
+// };
+//
+// Array.prototype.odd = function() {
+//     var answer = [];
+//     for (var i = 0; i < this.length; i++) {
+//         if (this[i] % 2 !== 0) {
+//             answer.push(this[i]);
+//         }
+//     }
+//     return answer;
+// };
+
+//Dominic's solution
+// var numbers = [1, 2, 3, 4, 5];
+//
+// Array.prototype.square = function() {
+//     return this.map(function(n) {
+//         return Math.pow(n, 2);
+//     });
+// };
+//
+// Array.prototype.cube = function() {
+//     return this.map(function(n) {
+//         return Math.pow(n, 3);
+//     });
+// };
+//
+// Array.prototype.sum = function () {
+//     return this.reduce(function(a, b) {
+//         return a + b;
+//     }, 0);
+// };
+//
+// Array.prototype.average = function() {
+//     return this.sum() / this.length;
+// };
+//
+// Array.prototype.even = function () {
+//     return this.filter(function(item) {
+//         return 0 === item % 2;
+//     });
+// };
+//
+// Array.prototype.odd = function () {
+//     return this.filter(function(item) {
+//         return 0 !== item % 2;
+//     });
+// };
+
+// numbers.square();
+// numbers.cube();
+// numbers.sum();
+// numbers.average();
+// numbers.even();
+// numbers.odd();
+
+
+
+ /*
+ --------------
+ Next Problem (Wk2-Day 4)
+ --------------
+ */
+
+/*
+Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters, - each taken only once - coming from s1 or s2.
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+*/
+
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+c = "abcdefghijklmnopqrstuvwxyz"
+
+// function longest(s1, s2) {
+// 	var str1  = s1.split('');
+// 	var str2 = s2.split('');
+// 	var newArray = [];
+// 	for(var i = 0; i < str1.length; i++){
+// 		if(!newArray.includes(str1[i])){
+// 			newArray.push(str1[i])
+// 		}
+// 	}
+// 	for(var j = 0; j < str2.length; j++){
+// 		if(!newArray.includes(str2[j])){
+// 			newArray.push(str2[j])
+// 		}
+// 	}
+// 	return newArray.sort().join('');
+// }
+
+
+// function longest(s1, s2) {
+//   s3 = (s1 + s2).split("").sort().filter(function(element, index, array){
+//     return element !== array[index - 1];
+//   });
+//   return s3.join("");
+// }
+
+function longest( s1, s2 ) {
+    return ( s1 + s2 ).split( '' ).sort().filter( function( ele, index, arr ) {
+        return ele !== arr[ index - 1 ];
+    }).join( '' );
+}
+
+//Nic's
+// function longest(str1, str2){
+//     var arr1 = str1.split("");
+//     var arr2 = str2.split("");
+//     function unique(arr){
+//         var noDups = [];
+//         for (var i = 0; i < arr.length; i++){
+//             if (noDups.indexOf(arr[i]) === -1){
+//                 noDups.push(arr[i]);
+//             }
+//         }
+//         return noDups;
+//     }
+//     var answer = unique(arr1);
+//     var noDupsArr2 = unique(arr2);
+//     for (var i = 0; i < noDupsArr2.length; i++){
+//         if (answer.indexOf(noDupsArr2[i]) === -1){
+//             answer.push(noDupsArr2[i]);
+//         }
+//     }
+//     answer = answer.sort().join("");
+//     return answer;
+// }
+
+//Shakib's
+// var longest = function (str1, str2){
+//  var combined = str1.split("").concat(str2.split(""));
+//  var noDublicates = [];
+//  for(var i=0; i<combined.length; i++){
+//   if(noDublicates.indexOf(combined[i]) === -1){
+//      noDublicates.push(combined[i]);
+//   }
+//  }
+//  var allSorted = noDublicates.sort().join('');
+//  return allSorted;
+// };
+
+console.log(longest(a, b)); // abcdefklmopqwxy
+console.log(longest(b, c)); // abcdefghijklmnopqrstuvwxyz
