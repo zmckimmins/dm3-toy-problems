@@ -401,3 +401,61 @@ function longest( s1, s2 ) {
 
 console.log(longest(a, b)); // abcdefklmopqwxy
 console.log(longest(b, c)); // abcdefghijklmnopqrstuvwxyz
+
+/*
+--------------
+Next Problem (Wk3-Day 1)
+--------------
+*/
+
+// function triangle() {
+//     var txt = '#######'
+//     for (var i = txt.length; i >= 0; i--){
+//       console.log(txt.slice(i))
+//     }
+// }
+
+// triangle();
+
+function triangle(num) {
+  var str = '';
+  for (var i = num; i >= 1; i--) {
+    str += '#';
+    console.log(str);
+  }
+}
+
+triangle(10);
+
+//Shakib's
+// function triangle(){
+//  for(var i=1; i<=7; i++){
+//   var numberOfHash = i;
+//   var currLine = "";
+//   while(numberOfHash !== 0){
+//      currLine = currLine + "#";
+//      numberOfHash = numberOfHash - 1;
+//   }
+//   console.log(currLine);
+//  }
+// }
+
+//Nic's
+// function triangle(){
+//   var symbol = "######";
+//   for(var i = 1; i < 7; i++)
+//     console.log(symbol.slice(0, [i]));
+// }
+
+// triangle();
+
+// Dominic's
+// function makeTriangle() {
+//     var triangle = '';
+//     for (var i = 0; i < 7; i++) {
+//         triangle = triangle + '#';
+//         console.log(triangle);
+//     }
+// }
+
+// makeTriangle();
