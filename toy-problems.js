@@ -514,3 +514,103 @@ function chain( val, funcs ) {
 }
 
 chain(2, [add, mult]) // 90
+
+/*
+--------------
+Next Problem (Wk3-Day 3)
+--------------
+*/
+
+/*
+Write a function called validParentheses that takes a string of parentheses, and determines if the order of the parentheses is valid. validParentheses should return true if the string is valid, and false if it's invalid.
+Examples:
+validParentheses( "()" ) => returns true
+validParentheses( ")(()))" ) => returns false
+validParentheses( "(" ) => returns false
+validParentheses( "(())((()())())" ) => returns true
+*/
+
+// Mentor's
+function validParentheses(parens){
+  var n = 0;
+  for (var i = 0; i < parens.length; i++) {
+    if (parens[i] == '(') n++;
+    if (parens[i] == ')') n--;
+    if (n < 0) return false;
+  }
+
+  return n == 0;
+}
+
+// function validParentheses(parens) {
+// return ((parens.forEach() === "(") ? " true " : " false ");
+// }
+
+// Shakib's
+// var validParentheses = function(parenStr){
+//  var count = 0;
+//  for (var i=0; i<parenStr.length; i++){
+//   if(parenStr.charAt(i) === "("){
+//      count = count + 1;
+//   }else if(parenStr.charAt(i) === ")"){
+//      count = count - 1;
+//   }
+//  }
+//  if(count !== 0){
+//   return false;
+//  }return true;
+// };
+
+// Dominic's
+// function validParentheses( str ) {
+//     var i = 0;
+//     var arr = [];
+
+//     if ( !str.length ) {
+//         return true;
+//     }
+
+//     if ( (str.length % 2) !== 0 ) {
+//         return false;
+//     }
+
+//     while ( i < str.length ) {
+//         if ( str[i] == "(" ) {
+//             arr.push( str[i] );
+//         } else if ( str[i] == ")" ) {
+//             if ( arr.length ) {
+//                 arr.pop();
+//             } else {
+//                 return false;
+//             }
+//         }
+//         i++;
+//     }
+//     return true;
+// }
+
+// Nic's
+// function validParentheses(str){
+//     var check = [];
+//     for(var i = 0; i < str.length; i++){
+//         if(str[i] === "("){
+//             check.push(i);
+//         }else if (str[i] === ")"){
+//             if (check.length){
+//                 check.pop();
+//             }else{
+//                 return false;
+//             }
+//         }
+//     }
+//     if(check.length % 2 !== 0){
+//       return false;
+//     }
+//     return true;
+// }
+
+console.log(validParentheses( "()" )); // returns true
+console.log(validParentheses( ")(()))" )); // returns false
+console.log(validParentheses( "(" )); // returns false
+console.log(validParentheses( ")()(" )); // returns false
+console.log(validParentheses( "(())((()())())" )); // returns true
