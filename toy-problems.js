@@ -642,7 +642,7 @@ function humanReadable(seconds) {
   return pad(hours) + ":" +pad(minutes) + ":" + pad(seconds);
 }
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
 // Nic's
 // function humanReadable(sec){
@@ -698,28 +698,52 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Cond
 
 // Shakib's
 // var humanReadable = function (seconds){
-//  var sec = 0;
-//  var min = 0;
-//  var hr = 0;
+//   var sec = 0;
+//   var min = 0;
+//   var hr = 0;
 
-//  sec = Math.floor((seconds % 60));
-//  min = Math.floor(((seconds / 60) % 60));
-//  hr = Math.floor(((seconds/60)/60));
+//   sec = seconds % 60;
+//   min = parseInt((seconds / 60) % 60);
+//   hr = parseInt( seconds / 3600 );
 
-//  if(sec<10){
-//   sec = "0"+sec;
-//  }
-//  if(min<10){
-//   min = "0"+min;
-//  }
-//  if(hr<10){
-//   min = "0"+hr;
-//  }
-//  console.log(hr + ":" + min + ":" + sec);
+//   if(sec<10){
+//     sec = "0"+sec;
+//   }
+//   if(min<10){
+//     min = "0"+min;
+//   }
+//   if(hr<10){
+//     hr = "0"+hr; // switch min to hr lol
+//   }
+//   console.log(hr + ":" + min + ":" + sec);
 // };
 
+// function humanReadable(sec){
+//     var hours   = Math.floor(sec / 3600);
+//     var minutes = Math.floor((sec - (hours * 3600)) / 60);
+//     var seconds = sec - (hours * 3600) - (minutes * 60);
+
+//     if (hours   < 10) {
+//         hours   = "0"+hours;
+//     }if (minutes < 10) {
+//         minutes = "0"+minutes;
+//     }if (seconds < 10) {
+//         seconds = "0"+seconds;
+//     }
+//     return hours + ':' + minutes + ':' + seconds;
+// }
+
 // Dontavious
-// function humanReadable(num) {   var hours = num / 60;   var rhours = Math.floor(hours);   var minutes = (hours - rhours) * 60;   var rminutes = Math.floor(minutes);   var seconds = (minutes - rminutes) * 60;   var rseconds = Math.floor(seconds);   return rhours + ":" + rminutes + ":" + rseconds; }  humanReadable(86399);    //Trying to find a way to regulate the numbers.
+// function humanReadable(num) {
+// 	var hours = num / 60;
+// 	var rhours = Math.floor(hours);
+// 	var minutes = (hours - rhours) * 60;
+// 	var rminutes = Math.floor(minutes);
+// 	var seconds = (minutes - rminutes) * 60;
+// 	var rseconds = Math.floor(seconds);
+
+// 	return rhours + ":" + rminutes + ":" + rseconds;
+// }
 
 // Rommel
 //  var SS = 0;
