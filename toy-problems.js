@@ -614,3 +614,142 @@ console.log(validParentheses( ")(()))" )); // returns false
 console.log(validParentheses( "(" )); // returns false
 console.log(validParentheses( ")()(" )); // returns false
 console.log(validParentheses( "(())((()())())" )); // returns true
+
+/*
+--------------
+Next Problem (Wk3-Day 4)
+--------------
+*/
+
+/*
+Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+    HH = hours, padded to 2 digits, range: 00 - 99
+    MM = minutes, padded to 2 digits, range: 00 - 59
+    SS = seconds, padded to 2 digits, range: 00 - 59
+The maximum time never exceeds 359999 (99:59:59)
+*/
+
+// Mentors
+function humanReadable(seconds) {
+  var hours = parseInt( seconds / 3600 ) ;
+  var minutes = parseInt( seconds / 60 ) % 60;
+  var seconds = seconds % 60;
+
+  var pad = function(val){
+    return val < 10 ? "0" + val : val;
+  }
+
+  return pad(hours) + ":" +pad(minutes) + ":" + pad(seconds);
+}
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+
+// Nic's
+// function humanReadable(sec){
+//     var hours   = Math.floor(sec / 3600);
+//     var minutes = Math.floor((sec - (hours * 3600)) / 60);
+//     var seconds = sec - (hours * 3600) - (minutes * 60);
+
+//     if (hours   < 10) {
+//         hours   = "0"+hours;
+//     }if (minutes < 10) {
+//         minutes = "0"+minutes;
+//     }if (seconds < 10) {
+//         seconds = "0"+seconds;
+//     }
+//     return hours + ':' + minutes + ':' + seconds;
+// }
+
+// Cameron's
+// function humanReadable(seconds) {
+//  if (seconds > 359999) {
+//   console.log('Too big!');
+//  }
+//  if (seconds <= 9) {
+//   console.log('00:00:0' + seconds);
+//  } else if (seconds <= 59) {
+//   console.log('00:00:' + seconds);
+//  } else if (seconds >= 60 && seconds <= 69) {
+//   console.log('00:01:0' + (seconds - 60));
+//  } else if (seconds >= 100 && seconds <= 109) {
+//   console.log('00:01:' + (seconds- 60));
+//  } else if (seconds >= 200 && seconds <= 209) {
+//   console.log('00:02:' + (seconds- 160));
+//  } else if (seconds >= 300 && seconds <= 309) {
+//   console.log('00:03:' + (seconds- 260));
+//  } else if (seconds >= 400 && seconds <= 409) {
+//   console.log('00:04:' + (seconds- 360));
+//  } else if (seconds >= 500 && seconds <= 509) {
+//   console.log('00:05:' + (seconds- 460));
+//  } else if (seconds >= 600 && seconds <= 609) {
+//   console.log('00:06:' + (seconds- 560));
+//  } else if (seconds >= 700 && seconds <= 709) {
+//   console.log('00:07:' + (seconds- 660));
+//  } else if (seconds >= 800 && seconds <= 809) {
+//   console.log('00:08:' + (seconds- 760));
+//  } else if (seconds >= 900 && seconds <= 909) {
+//   console.log('00:09:' + (seconds- 860));
+//  } else if (seconds >= 1000 && seconds <= 1010) {
+//   console.log('00:10:' + (seconds- 960));
+//  }
+
+
+// }
+
+// Shakib's
+// var humanReadable = function (seconds){
+//  var sec = 0;
+//  var min = 0;
+//  var hr = 0;
+
+//  sec = Math.floor((seconds % 60));
+//  min = Math.floor(((seconds / 60) % 60));
+//  hr = Math.floor(((seconds/60)/60));
+
+//  if(sec<10){
+//   sec = "0"+sec;
+//  }
+//  if(min<10){
+//   min = "0"+min;
+//  }
+//  if(hr<10){
+//   min = "0"+hr;
+//  }
+//  console.log(hr + ":" + min + ":" + sec);
+// };
+
+// Dontavious
+// function humanReadable(num) {   var hours = num / 60;   var rhours = Math.floor(hours);   var minutes = (hours - rhours) * 60;   var rminutes = Math.floor(minutes);   var seconds = (minutes - rminutes) * 60;   var rseconds = Math.floor(seconds);   return rhours + ":" + rminutes + ":" + rseconds; }  humanReadable(86399);    //Trying to find a way to regulate the numbers.
+
+// Rommel
+//  var SS = 0;
+//   var MM = 0;
+//   var HH = 0;
+// var time = function(seconds) {
+//   do {
+//     if (seconds >= 360) {
+//       HH += 01;
+//       seconds -= 360;
+//     }
+//   }
+//   while (seconds >= 360);
+
+//   do {
+//     if (seconds >= 60) {
+//       MM += 01;
+//       seconds -= 60;
+//     }
+//   }
+//   while (seconds >= 60);
+
+//   if (seconds < 60) {
+//     SS += seconds;
+//   }
+// };
+
+
+console.log(humanReadable(0)) // '00:00:00'
+console.log(humanReadable(5)) // '00:00:05'
+console.log(humanReadable(60)) // '00:01:00'
+console.log(humanReadable(86399)) // '23:59:59'
+console.log(humanReadable(359999)) // '99:59:59'
