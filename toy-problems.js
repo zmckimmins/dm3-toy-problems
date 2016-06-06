@@ -777,3 +777,29 @@ console.log(humanReadable(5)) // '00:00:05'
 console.log(humanReadable(60)) // '00:01:00'
 console.log(humanReadable(86399)) // '23:59:59'
 console.log(humanReadable(359999)) // '99:59:59'
+
+/*
+--------------
+Next Problem (Wk4-Day 1)
+--------------
+*/
+
+/*Write a new nestedFilter method on the Array prototype, it should work the same as filter,
+but work on all nested arrays within the initial array.*/
+
+Array.prototype.nestedFilter = function( cb ) {
+  let ret = [];
+  for ( let i = 0; i < this.length; i++ ) {
+    if ( Array.isArray(this[i]) ) {
+      ret.push(this[i].nestedFilter( cb ));
+    } else {
+      if ( cb( this[i], i, this ) ) {
+        ret.push(this[i]);
+      }
+    }
+  }
+  return ret;
+}
+
+console.log([false, true, [true, false, false], true].nestedFilter( item => item )); // returns [true, [true], true]
+console.log([2, 4, 8, 7, [9, 12, 13, 99, [87, 64, 3022]]].nestedFilter( item => item % 2 === 0)); // returns [2, 4, 8, [12, [64, 3022]]]
