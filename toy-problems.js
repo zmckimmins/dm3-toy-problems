@@ -803,3 +803,85 @@ Array.prototype.nestedFilter = function( cb ) {
 
 console.log([false, true, [true, false, false], true].nestedFilter( item => item )); // returns [true, [true], true]
 console.log([2, 4, 8, 7, [9, 12, 13, 99, [87, 64, 3022]]].nestedFilter( item => item % 2 === 0)); // returns [2, 4, 8, [12, [64, 3022]]]
+
+/*
+--------------
+Next Problem (Wk4-Day 2)
+--------------
+*/
+
+/*
+No trailing spaces!
+'anane' === 1
+'adak' === 2
+
+console.log(amazonCounting(1)); // 'anane'
+console.log(amazonCounting(2)); // 'adak'
+console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
+*/
+
+
+
+// Mentos 1
+// function amazonCounting(num) {
+//     var anane = "anane";
+//     var adak = 'adak';
+
+//     if ( num === 1 ) {
+//         return anane;
+//     } else if ( num === 2 ) {
+//         return adak;
+//     } else {
+//         return adak + " " + amazonCounting( num - 2 );
+//     }
+// }
+
+// Mentos 2
+function amazonCounting( num ) {
+    switch ( num ) {
+        case 0:
+            return ''
+        case 1:
+            return 'anane'
+        case 2:
+            return 'adak'
+        default:
+            return 'adak ' + amazonCounting( num - 2 )
+    }
+}
+
+// Camerons
+// function amazonCounting(num) {
+//   var str = "";
+
+//   if (num % 2 === 0) {
+//     for(var i = 0; i < num / 2; i++) {
+//       str += 'adak';
+//     }
+//   } else {
+//     for (var i = 0; i < (num - 1) / 2; i++) {
+//       str += 'adak' + ' ';
+//     }
+//     str += 'anane';
+//   }
+//   //console.log(str);
+//   return str;
+// }
+
+// Dominic's
+// function amazonCounting(numero) {
+//     var uno = "anane";
+//     var dos = 'adak';
+
+//     if ( numero === 1 ) {
+//         return uno;
+//     } else if ( numero === 2 ) {
+//         return dos;
+//     } else {
+//         return dos + " " + amazonCounting( numero - 2 );
+//     }
+// }
+
+console.log(amazonCounting(1)); // 'anane'
+console.log(amazonCounting(2)); // 'adak'
+console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
