@@ -885,3 +885,111 @@ function amazonCounting( num ) {
 console.log(amazonCounting(1)); // 'anane'
 console.log(amazonCounting(2)); // 'adak'
 console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
+
+/*
+--------------
+Next Problem (Wk4-Day 3)
+--------------
+*/
+
+/*
+write a function that will console log the numbers 1 through 5,
+with delays between each log equaling the logged number.
+delayLog() // pauses 1 second, then logs 1
+// pauses 2 seconds after the previous log, then logs 2
+// pauses 3 seconds after the previous log, then logs 3
+// pauses 4 seconds after the previous log, then logs 4
+// pauses 5 seconds after the previous log, then logs 5
+*/
+
+// function delayLog() {
+//     var counter = 1;
+
+//     function logger() {
+//         if ( counter <= 5 ) {
+//             setTimeout( function() {
+//                 console.log( counter++ );
+//                 logger();
+//             }, counter * 1000);
+//         }
+//     }
+//     logger();
+// }
+
+// function delayLog(num) {
+
+//  var timer = 1000;
+//  var num2 = 2;
+
+//  if (!num) {
+//   num = 1;
+//  }
+
+// Camerons
+//  for (var i = 0; i < 5; i++) {
+//   setTimeout(function() {
+//   console.log(num);
+//   num++;
+//  }, timer);
+//      console.log(timer);
+//   timer += 1000 * num2;
+//   num2++;
+//  }
+// }
+
+// Nic's
+function delayLog(){
+  function count(time){
+    var num = time;
+    setTimeout(function(){
+      if(num < 6){
+        console.log(num);
+        num = num + 1;
+        count(num);
+      }
+    }, (num * 1000));
+  }
+  count(1);
+}
+
+// Dontavious
+// function delayLog(arr) {
+//   for (var i = 1; i < arr.length - 1; i++) {
+//     setInterval(arr[i], i * 1000);
+//   }
+// }
+
+
+// console.log(delayLog([1,2,3,4,5]));
+
+// Dominic's
+// for ( i = 1; i <= 5; i++ ) {
+//   delayLog(i);
+// }
+
+// function delayLog(i) {
+//   setTimeout( function() {
+//     console.log( i );
+//   }, i * 1000) ;
+// }
+
+// Shakib's
+// function delayLog(){
+//  for (var i = 1; i <= 5; i++){
+//      setTimeout(function() {
+//       console.log(i);
+//      }, i*1000);
+//  }
+// }
+
+// Rommel
+// var nums = [1, 2, 3, 4, 5];
+// var log = function() {
+//     for(var i = 0; i < nums.length; i++) {
+//     console.log(nums[i]);
+//     }
+
+// };
+// setInterval(log, (nums*1000));
+
+delayLog();
