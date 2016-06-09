@@ -9,14 +9,14 @@ Next Problem (Wk2-Day 1)
  */
 
 
-function ordered( arr ) {
-    for (var i = 0; i < arr.length; i++) {
-        if (arr[i] > arr[i + 1]) {
-            return false;
-        }
-    }
-    return true;
-}
+// function ordered( arr ) {
+//     for (var i = 0; i < arr.length; i++) {
+//         if (arr[i] > arr[i + 1]) {
+//             return false;
+//         }
+//     }
+//     return true;
+// }
 
 //Nic
 // function inOrder (array) {
@@ -53,17 +53,17 @@ function ordered( arr ) {
 // console.log(isOrdered( [4, 9, 42, 22, 56] )); // false
 
 //Dominic
-function ordered ( array ) {
-    for (var i = 0; i < array.length-1; i++)
-        if (array[i] < array[i+1]) {
-            console.log("True")
-        } else {
-            console.log("false")
-        }
-}
-
-ordered ( [1, 2, 3, 7, 12] );
-ordered ( [4, 9, 42, 22, 56] );
+// function ordered ( array ) {
+//     for (var i = 0; i < array.length-1; i++)
+//         if (array[i] < array[i+1]) {
+//             console.log("True");
+//         } else {
+//             console.log("false");
+//         }
+// }
+//
+// ordered ( [1, 2, 3, 7, 12] );
+// ordered ( [4, 9, 42, 22, 56] );
 
 
 /*
@@ -79,81 +79,82 @@ Assume the empty string is an isogram. Ignore letter case.
 
 //my solution
 
-function isIsogram(str){
-  // Turn all letters of the string to lower case and split it into an array.
-  var letters = str.toLowerCase().split('');
-  var checkLetters = [];
-
-   /* Check to see if the letter appears in the checkLetters array.
-    If the letter is not already in the array it will push the letter into it. */
-  letters.forEach(function(letter) {
-   if(checkLetters.indexOf(letter) === -1) {
-     checkLetters.push(letter);
-//      console.log(checkLetters);
-   }
- });
+// function isIsogram(str){
+//   // Turn all letters of the string to lower case and split it into an array.
+//   var letters = str.toLowerCase().split('');
+//   var checkLetters = [];
+//
+//    /* Check to see if the letter appears in the checkLetters array.
+//     If the letter is not already in the array it will push the letter into it. */
+//   letters.forEach(function(letter) {
+//    if(checkLetters.indexOf(letter) === -1) {
+//      checkLetters.push(letter);
+// //      console.log(checkLetters);
+//    }
+//  });
   /* Now we have two arrays. If the letters array has non-duplicate letters then
     it will be the same length as the checkLetters array. If not, the checkLetters array
     will be shorter. */
 
  /* Return true or false depending on whether the lengths of both arrays are equal */
 
- return letters.length === checkLetters.length ? true : false;
-}
+//  return letters.length === checkLetters.length ? true : false;
+// }
 
-console.log(isIsogram("Dermatoglyphics")); //true
-console.log(isIsogram("aba")); // false
-console.log(isIsogram("moOse")); // false // ignore letter case
-console.log(isIsogram("you didnt even know"));
-console.log(isIsogram("yes im down"));
+// console.log(isIsogram("Dermatoglyphics")); //true
+// console.log(isIsogram("aba")); // false
+// console.log(isIsogram("moOse")); // false // ignore letter case
+// console.log(isIsogram("you didnt even know"));
+// console.log(isIsogram("yes im down"));
 
 //Nic's solution
-function isIsogram(str){
-    var cap = str.toUpperCase().split("");
-    var check = [];
-    cap.forEach(function(val){
-        if(check.indexOf(val) === -1){
-            check.push(val);
-        }
-    });
-     if (check.length === cap.length){
-         return true;
-     }
-
-    return false;
-}
+// function isIsogram(str){
+//     var cap = str.toUpperCase().split("");
+//     var check = [];
+//     cap.forEach(function(val){
+//         if(check.indexOf(val) === -1){
+//             check.push(val);
+//         }
+//     });
+//      if (check.length === cap.length){
+//          return true;
+//      }
+//
+//     return false;
+// }
 
 //Dominic's solution
-var isogram = function( string ) {
-    string = string.toLowerCase();
-    var array = string.split('');
-    var checked = [];
-
-    for ( var i = 0; i < array.length; i++ ) {
-        if ( checked.indexOf(array[i] ) < 0 ) {
-            checked.push( array[i] );
-        } else {
-            return false;
-        }
-    }
-    return true;
-}
+// var isogram = function( string ) {
+//     string = string.toLowerCase();
+//     var array = string.split('');
+//     var checked = [];
+//
+//     for ( var i = 0; i < array.length; i++ ) {
+//         if ( checked.indexOf(array[i] ) < 0 ) {
+//             checked.push( array[i] );
+//         } else {
+//             return false;
+//         }
+//     }
+//     return true;
+// };
 
 //Tony's solution
-var isogram = function(str){
- str.toLowerCase();
- var arr = str.split("");
- var looped = [];
-
- for (var i = 0; i < arr.length; i++){
-   if (looped.indexOf(arr[i]) < 0){
-     looped.push(arr[i]);
-   }
-   else{
-     return false;
-   }
-     return true;
- }
+// var isogram = function(str){
+//  str.toLowerCase();
+//  var arr = str.split("");
+//  var looped = [];
+//
+//  for (var i = 0; i < arr.length; i++){
+//    if (looped.indexOf(arr[i]) < 0){
+//      looped.push(arr[i]);
+//    }
+//    else{
+//      return false;
+//    }
+//      return true;
+//  }
+// };
 
  /*
  --------------
@@ -179,41 +180,41 @@ numbers.even(); // must return [2, 4]
 numbers.odd(); // must return [1, 3, 5]
 */
 
-Array.prototype.square = function() {
-    return this.map(function(item) {
-        return Math.pow(item, 2);
-    });
-}
+// Array.prototype.square = function() {
+//     return this.map(function(item) {
+//         return Math.pow(item, 2);
+//     });
+// };
 
-Array.prototype.cube = function() {
-    return this.map(function(item) {
-        return Math.pow(item, 3);
-    });
-}
+// Array.prototype.cube = function() {
+//     return this.map(function(item) {
+//         return Math.pow(item, 3);
+//     });
+// };
 
-Array.prototype.sum = function() {
-    return this.reduce(function(pv, cur) {
-        return pv + cur;
-    });
-}
-
-Array.prototype.average = function() {
-    if (this.length === 0) return NaN;
-
-    return this.sum() / this.length;
-}
-
-Array.prototype.even = function() {
-    return this.filter(function(item) {
-        return item % 2 === 0;
-    });
-}
-
-Array.prototype.odd = function() {
-    return this.filter(function(item) {
-        return item % 2 !== 0;
-    });
-}
+// Array.prototype.sum = function() {
+//     return this.reduce(function(pv, cur) {
+//         return pv + cur;
+//     });
+// };
+//
+// Array.prototype.average = function() {
+//     if (this.length === 0) return NaN;
+//
+//     return this.sum() / this.length;
+// };
+//
+// Array.prototype.even = function() {
+//     return this.filter(function(item) {
+//         return item % 2 === 0;
+//     });
+// };
+//
+// Array.prototype.odd = function() {
+//     return this.filter(function(item) {
+//         return item % 2 !== 0;
+//     });
+// };
 
 //Nic's solution
 // var numbers = [1, 2, 3, 4, 5];
@@ -327,9 +328,9 @@ a = "abcdefghijklmnopqrstuvwxyz"
 longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 */
 
-a = "xyaabbbccccdefww"
-b = "xxxxyyyyabklmopq"
-c = "abcdefghijklmnopqrstuvwxyz"
+// a = "xyaabbbccccdefww";
+// b = "xxxxyyyyabklmopq";
+// c = "abcdefghijklmnopqrstuvwxyz";
 
 // function longest(s1, s2) {
 // 	var str1  = s1.split('');
@@ -356,11 +357,11 @@ c = "abcdefghijklmnopqrstuvwxyz"
 //   return s3.join("");
 // }
 
-function longest( s1, s2 ) {
-    return ( s1 + s2 ).split( '' ).sort().filter( function( ele, index, arr ) {
-        return ele !== arr[ index - 1 ];
-    }).join( '' );
-}
+// function longest( s1, s2 ) {
+//     return ( s1 + s2 ).split( '' ).sort().filter( function( ele, index, arr ) {
+//         return ele !== arr[ index - 1 ];
+//     }).join( '' );
+// }
 
 //Nic's
 // function longest(str1, str2){
@@ -399,8 +400,8 @@ function longest( s1, s2 ) {
 //  return allSorted;
 // };
 
-console.log(longest(a, b)); // abcdefklmopqwxy
-console.log(longest(b, c)); // abcdefghijklmnopqrstuvwxyz
+// console.log(longest(a, b)); // abcdefklmopqwxy
+// console.log(longest(b, c)); // abcdefghijklmnopqrstuvwxyz
 
 /*
 --------------
@@ -417,15 +418,15 @@ Next Problem (Wk3-Day 1)
 
 // triangle();
 
-function triangle(num) {
-  var str = '';
-  for (var i = num; i >= 1; i--) {
-    str += '#';
-    console.log(str);
-  }
-}
-
-triangle(10);
+// function triangle(num) {
+//   var str = '';
+//   for (var i = num; i >= 1; i--) {
+//     str += '#';
+//     console.log(str);
+//   }
+// }
+//
+// triangle(10);
 
 //Shakib's
 // function triangle(){
@@ -471,13 +472,13 @@ Write a generic function chainer
 Write a generic function chainer that takes a starting value, and an array of functions to execute on it.
 The input for each function is the output of the previous function (except the first function, which takes the starting value as it's input). Return the final value after execution is complete.
 */
-function add(num) {
-  return num + 1
-}
-function mult(num) {
-  return num * 30
-}
-chain(2, [add, mult]);
+// function add(num) {
+//   return num + 1;
+// }
+// function mult(num) {
+//   return num * 30;
+// }
+// chain(2, [add, mult]);
 // returns 90;
 
 // Mentors solution
@@ -506,14 +507,14 @@ chain(2, [add, mult]);
 // }
 
 // Dominic's
-function chain( val, funcs ) {
-    for (var i = 0; i < funcs.length; i++) {
-        val = funcs[i](val);
-    }
-    return val;
-}
-
-chain(2, [add, mult]) // 90
+// function chain( val, funcs ) {
+//     for (var i = 0; i < funcs.length; i++) {
+//         val = funcs[i](val);
+//     }
+//     return val;
+// }
+//
+// chain(2, [add, mult]); // 90
 
 /*
 --------------
@@ -531,16 +532,16 @@ validParentheses( "(())((()())())" ) => returns true
 */
 
 // Mentor's
-function validParentheses(parens){
-  var n = 0;
-  for (var i = 0; i < parens.length; i++) {
-    if (parens[i] == '(') n++;
-    if (parens[i] == ')') n--;
-    if (n < 0) return false;
-  }
-
-  return n == 0;
-}
+// function validParentheses(parens){
+//   var n = 0;
+//   for (var i = 0; i < parens.length; i++) {
+//     if (parens[i] == '(') n++;
+//     if (parens[i] == ')') n--;
+//     if (n < 0) return false;
+//   }
+//
+//   return n === 0;
+// }
 
 // function validParentheses(parens) {
 // return ((parens.forEach() === "(") ? " true " : " false ");
@@ -609,11 +610,11 @@ function validParentheses(parens){
 //     return true;
 // }
 
-console.log(validParentheses( "()" )); // returns true
-console.log(validParentheses( ")(()))" )); // returns false
-console.log(validParentheses( "(" )); // returns false
-console.log(validParentheses( ")()(" )); // returns false
-console.log(validParentheses( "(())((()())())" )); // returns true
+// console.log(validParentheses( "()" )); // returns true
+// console.log(validParentheses( ")(()))" )); // returns false
+// console.log(validParentheses( "(" )); // returns false
+// console.log(validParentheses( ")()(" )); // returns false
+// console.log(validParentheses( "(())((()())())" )); // returns true
 
 /*
 --------------
@@ -630,17 +631,17 @@ The maximum time never exceeds 359999 (99:59:59)
 */
 
 // Mentors
-function humanReadable(seconds) {
-  var hours = parseInt( seconds / 3600 ) ;
-  var minutes = parseInt( seconds / 60 ) % 60;
-  var seconds = seconds % 60;
-
-  var pad = function(val){
-    return val < 10 ? "0" + val : val;
-  }
-
-  return pad(hours) + ":" +pad(minutes) + ":" + pad(seconds);
-}
+// function humanReadable(seconds) {
+//   var hours = parseInt( seconds / 3600 ) ;
+//   var minutes = parseInt( seconds / 60 ) % 60;
+//   var seconds = seconds % 60;
+//
+//   var pad = function(val){
+//     return val < 10 ? "0" + val : val;
+//   };
+//
+//   return pad(hours) + ":" +pad(minutes) + ":" + pad(seconds);
+// }
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
 
@@ -772,11 +773,11 @@ function humanReadable(seconds) {
 // };
 
 
-console.log(humanReadable(0)) // '00:00:00'
-console.log(humanReadable(5)) // '00:00:05'
-console.log(humanReadable(60)) // '00:01:00'
-console.log(humanReadable(86399)) // '23:59:59'
-console.log(humanReadable(359999)) // '99:59:59'
+// console.log(humanReadable(0)); // '00:00:00'
+// console.log(humanReadable(5)); // '00:00:05'
+// console.log(humanReadable(60)); // '00:01:00'
+// console.log(humanReadable(86399)); // '23:59:59'
+// console.log(humanReadable(359999)); // '99:59:59'
 
 /*
 --------------
@@ -787,22 +788,22 @@ Next Problem (Wk4-Day 1)
 /*Write a new nestedFilter method on the Array prototype, it should work the same as filter,
 but work on all nested arrays within the initial array.*/
 
-Array.prototype.nestedFilter = function( cb ) {
-  let ret = [];
-  for ( let i = 0; i < this.length; i++ ) {
-    if ( Array.isArray(this[i]) ) {
-      ret.push(this[i].nestedFilter( cb ));
-    } else {
-      if ( cb( this[i], i, this ) ) {
-        ret.push(this[i]);
-      }
-    }
-  }
-  return ret;
-}
+// Array.prototype.nestedFilter = function( cb ) {
+//   let ret = [];
+//   for ( let i = 0; i < this.length; i++ ) {
+//     if ( Array.isArray(this[i]) ) {
+//       ret.push(this[i].nestedFilter( cb ));
+//     } else {
+//       if ( cb( this[i], i, this ) ) {
+//         ret.push(this[i]);
+//       }
+//     }
+//   }
+//   return ret;
+// };
 
-console.log([false, true, [true, false, false], true].nestedFilter( item => item )); // returns [true, [true], true]
-console.log([2, 4, 8, 7, [9, 12, 13, 99, [87, 64, 3022]]].nestedFilter( item => item % 2 === 0)); // returns [2, 4, 8, [12, [64, 3022]]]
+// console.log([false, true, [true, false, false], true].nestedFilter( item => item )); // returns [true, [true], true]
+// console.log([2, 4, 8, 7, [9, 12, 13, 99, [87, 64, 3022]]].nestedFilter( item => item % 2 === 0)); // returns [2, 4, 8, [12, [64, 3022]]]
 
 /*
 --------------
@@ -837,18 +838,18 @@ console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
 // }
 
 // Mentos 2
-function amazonCounting( num ) {
-    switch ( num ) {
-        case 0:
-            return ''
-        case 1:
-            return 'anane'
-        case 2:
-            return 'adak'
-        default:
-            return 'adak ' + amazonCounting( num - 2 )
-    }
-}
+// function amazonCounting( num ) {
+//     switch ( num ) {
+//         case 0:
+//             return '';
+//         case 1:
+//             return 'anane';
+//         case 2:
+//             return 'adak';
+//         default:
+//             return 'adak ' + amazonCounting( num - 2 );
+//     }
+// }
 
 // Camerons
 // function amazonCounting(num) {
@@ -882,9 +883,9 @@ function amazonCounting( num ) {
 //     }
 // }
 
-console.log(amazonCounting(1)); // 'anane'
-console.log(amazonCounting(2)); // 'adak'
-console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
+// console.log(amazonCounting(1)); // 'anane'
+// console.log(amazonCounting(2)); // 'adak'
+// console.log(amazonCounting(13)); // 'adak adak adak adak adak adak anane'
 
 /*
 --------------
@@ -938,19 +939,19 @@ delayLog() // pauses 1 second, then logs 1
 // }
 
 // Nic's
-function delayLog(){
-  function count(time){
-    var num = time;
-    setTimeout(function(){
-      if(num < 6){
-        console.log(num);
-        num = num + 1;
-        count(num);
-      }
-    }, (num * 1000));
-  }
-  count(1);
-}
+// function delayLog(){
+//   function count(time){
+//     var num = time;
+//     setTimeout(function(){
+//       if(num < 6){
+//         console.log(num);
+//         num = num + 1;
+//         count(num);
+//       }
+//     }, (num * 1000));
+//   }
+//   count(1);
+// }
 
 // Dontavious
 // function delayLog(arr) {
@@ -992,4 +993,118 @@ function delayLog(){
 // };
 // setInterval(log, (nums*1000));
 
-delayLog();
+// delayLog();
+
+/*
+--------------
+Next Problem (Wk4-Day 4)
+--------------
+*/
+
+/*
+Write a function format that takes two arguments, text and width, and formats the text to fit the width.
+Your function should divide the given text into lines using newline characters. It should fit as many words into each line as possible without exceeding the given width or splitting any words between two lines. There should not be a space at the beginning or end of any line. For example, here is some text formatted with a width of 50:
+*/
+var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec consectetur risus. Cras vel urna a tellus dapibus consequat. Duis bibendum tincidunt viverra. Phasellus dictum efficitur sem quis porttitor. Mauris luctus auctor diam id ultrices. Praesent laoreet in enim ut placerat. Praesent a facilisis turpis. And the same text formatted with a width of 30: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec consectetur risus. Cras vel urna a tellus dapibus consequat. Duis bibendum tincidunt viverra. Phasellus dictum efficitur sem quis porttitor. Mauris luctus auctor diam id ultrices. Praesent laoreet in enim ut placerat. Praesent a facilisis turpis."
+
+// function format(text, width) {
+//   var textArr = text.split(' ');
+//   var currentLineLength = 0;
+//   var formatted = [[]];
+//   var formattedIndex = 0;
+
+//   for ( var i = 0; i < textArr.length; i++ ) {
+//     if ( (textArr[i].length + currentLineLength) > width ) {
+//       formatted[formattedIndex] = formatted[formattedIndex].join(' ');
+//       //console.log(formatted[formattedIndex])
+//       formatted.push([]);
+//       //console.log(formatted);
+//       formattedIndex++;
+//       currentLineLength = 0;
+//     }
+//     formatted[formattedIndex].push(textArr[i]);
+//     currentLineLength += textArr[i].length + 1;
+//     // console.log(currentLineLength)
+//     // console.log(formatted[formattedIndex])
+//   }
+
+//   if ( Array.isArray(formatted[formattedIndex]) ) {
+//     formatted[formattedIndex] = formatted[formattedIndex].join(' ');
+//     console.log(formatted[formattedIndex])
+//   }
+//   return formatted.join("\n");
+// }
+
+// Nic's
+// function format(text, width){
+//   var arr = text.split("");
+//   function checkBack(x){
+//     for(var j = x; x > 0; x-- ){
+//       if (arr[x] === " "){
+//         arr.splice(x, 0, "\n");
+//         i = x + 2;
+//         return;
+//       }
+//     }
+//   }
+//   for(var i = width; i < arr.length; i = i + width){
+//     if (arr[i] !== " "){
+//       checkBack(i);
+//     } else {
+//       arr.splice(i, 0, "\n");
+//       i = i + 2;
+//   }
+//   }
+//   return arr.join("");
+// }
+
+// Dontavious
+// function format(str, width, spaceReplacer) {
+//     if (str.length > width) {
+//         var i = width;
+//         for (i > 0; str[i] !== ' '; i--) {
+//         }
+//         if (i > 0) {
+//             var left = str.substring(0, i);
+//             var right = str.substring(i + 1);
+//             return left + spaceReplacer + format(right, width, spaceReplacer);
+//         }
+//     }
+//     return str;
+// }
+
+// console.log(format(str, 50, '\n'));
+
+// Shakib's
+// function format (text, width){
+//  var count = 0;
+//  var formatted = "";
+//  var newLine = "";
+
+//  var i=0;
+//  while(i < text.length){
+//   while(count <= width){
+//      newLine = newLine + text.charAt(i);
+//      count = count + 1;
+//      i++;
+//   }
+//   formatted = formatted + newLine + '\n';
+//   newLine = "";
+//   count = 0;
+//  }
+
+//  return formatted;
+// }
+
+// Dominic's
+function format(text, width) {
+  var result = '';
+  var spaces = ' ';
+  while (text.length > 0) {
+    result += text.substring(0, width) + "\n";
+    text = text.substring(width);
+  }
+  return result;
+}
+
+console.log(format(str, 50));
