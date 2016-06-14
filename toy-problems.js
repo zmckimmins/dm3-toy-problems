@@ -1171,3 +1171,74 @@ Then he wants to sum the digits of the result, and repeat until he have only one
 //
 // console.log(digitSum( 31337 )); // 8
 // console.log(digitSum( 1073741824 )); // 1
+
+/*
+--------------
+Next Problem (Wk5-Day 2)
+--------------
+*/
+
+//Create a function which answers the question "Are you playing Banjo?". If your name starts with the letter "R" or lower case "r", you are playing Banjo!
+
+// The function takes a name as its only argument, and returns one of the following strings:
+
+// name + "plays banjo" name + "does not play banjo"
+
+// Names given are always valid strings.
+
+// function areYouPlayingBanjo(name) {
+
+//   var str = name.toLowerCase().split("")
+
+//   if(str[0] === "r"){
+//   	return name + " plays banjo";
+//   } else {
+//   	return name + " does not play banjo";
+//   }
+// }
+
+
+/*-------------------
+Using ternary
+-------------------*/
+function areYouPlayingBanjo(name) {
+return name + ((name[0].toLowerCase() === "r") ? " plays " : " does not play ") + "bango";
+}
+
+// Nic's
+// function areYouPlayingBanjo( name ){
+//     check = name.split("");
+//     var ans = check[0] === ("R" || "r") ? name + " plays banjo" : name + " does not play banjo";
+//     return ans;
+// }
+
+
+// Dominic
+// function areYouPlayingBanjo(name) {
+//     if(name.indexOf('r') === 0) {
+//         console.log(name + " plays banjo");
+//     } else if(name.indexOf('R') === 0) {
+//         console.log(name + " plays banjo");
+//     } else {
+//         console.log(name + " does not play banjo");
+//     }
+// }
+
+// Shakib
+// function areYouPlayingBanjo(name) {
+//   var newName = name;
+//   return ((newName.toLowerCase().charAt(0) === 'r') ?
+//          (name + " plays banjo") : (name + " does not play banjo"));
+// }
+
+// Dontavious
+// function areYouPlayingBanjo(name) {
+//   if (name.charAt(0) === 'R' || name.charAt(0) === 'r') {
+//     return name + ' plays banjo.';
+//   } else {
+//     return name + ' does not play banjo.';
+// }
+// }
+
+console.log(areYouPlayingBanjo("Rolo"));
+console.log(areYouPlayingBanjo("Jolo"));
