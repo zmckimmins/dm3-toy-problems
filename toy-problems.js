@@ -1097,14 +1097,77 @@ var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec 
 // }
 
 // Dominic's
-function format(text, width) {
-  var result = '';
-  var spaces = ' ';
-  while (text.length > 0) {
-    result += text.substring(0, width) + "\n";
-    text = text.substring(width);
-  }
-  return result;
-}
+// function format(text, width) {
+//   var result = '';
+//   var spaces = ' ';
+//   while (text.length > 0) {
+//     result += text.substring(0, width) + "\n";
+//     text = text.substring(width);
+//   }
+//   return result;
+// }
+//
+// console.log(format(str, 50));
 
-console.log(format(str, 50));
+/*
+--------------
+Next Problem (Wk5-Day 1)
+--------------
+*/
+/*
+As a crude form of hashing function, Lars wants to sum the digits of a number.
+Then he wants to sum the digits of the result, and repeat until he have only one digit left.
+*/
+
+// function digitSum( num ) {
+//   let sum = num.toString().split('').reduce( ( a, b ) => parseInt( a ) + parseInt( b ));
+//
+//   return sum < 10 ? sum : digitSum( sum );
+// }
+//
+// // better
+// function digitSum( n ) {
+//     return n < 10 ? n : digitSum(Math.floor(n / 10) + (n % 10));
+// }
+//
+// // Shakib's
+// function digitSum(num){
+//   var numToString = "" + num;
+//   if(numToString.length === 1){
+//     return parseInt(numToString);
+//   }
+//   var total = 0;
+//   for(var i=0; i<numToString.length; i++){
+//     total = total + parseInt(numToString.charAt(i));
+//   }
+//   return digitSum(total);
+// }
+
+// Dontavious
+// function digitSum(num) {
+//   var arrNum = [];
+//   var sum = 0;
+//   arrNum.push(num);
+//   var farrNum = arrNum.join('').split();
+
+//   for (var i = 0; i < farrNum.length; i++) {
+//     sum += farrNum[i];
+//     console.log(sum);
+//   }
+// }
+
+// Nic's
+// function digitSum( num ){
+//     var answer = 0;
+//     for(var i = 0; i < num.length; i++){
+//         answer = answer + num[0];
+//     }
+//     if( answer.length !== 1){
+//         digitSum(answer);
+//     } else {
+//         return answer;
+//     }
+// }
+//
+// console.log(digitSum( 31337 )); // 8
+// console.log(digitSum( 1073741824 )); // 1
