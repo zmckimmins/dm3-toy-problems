@@ -1201,9 +1201,9 @@ Next Problem (Wk5-Day 2)
 /*-------------------
 Using ternary
 -------------------*/
-function areYouPlayingBanjo(name) {
-return name + ((name[0].toLowerCase() === "r") ? " plays " : " does not play ") + "bango";
-}
+// function areYouPlayingBanjo(name) {
+// return name + ((name[0].toLowerCase() === "r") ? " plays " : " does not play ") + "bango";
+// }
 
 // Nic's
 // function areYouPlayingBanjo( name ){
@@ -1240,5 +1240,97 @@ return name + ((name[0].toLowerCase() === "r") ? " plays " : " does not play ") 
 // }
 // }
 
-console.log(areYouPlayingBanjo("Rolo"));
-console.log(areYouPlayingBanjo("Jolo"));
+// console.log(areYouPlayingBanjo("Rolo"));
+// console.log(areYouPlayingBanjo("Jolo"));
+
+/*
+--------------
+Next Problem (Wk5-Day 3)
+--------------
+*/
+
+/*
+For this exercise you will create a flatten function.
+The function takes in any number of arguments and flattens them
+into a single array. If any of the arguments passed in are an
+array then the individual objects within the array will be flattened
+so that they exist at the same level as the other arguments.
+Any nested arrays, no matter how deep, should be flattened into the
+single array result.
+The following are examples of how this function would be used and
+what the expected results would be:
+*/
+
+// Naz
+// let fill = [];
+// let flatten = (...rest) => {
+//   return rest.forEach(function(element, index, rest){
+//       if(Array.isArray(element)){
+//           return flatten(element);
+//       }else{
+//           fill.push(element);
+//       }
+//   })
+// }
+
+// Nic's
+// function flatten(arr){
+//     let ans = [];
+//     for(let i = 0; i < arr.length; i++){
+//         arr[i] instanceof Array?flatten(arr[i]):ans.push(arr[i]);
+//     }
+//     return ans;
+// }
+
+// Dominic's
+// const flatten = (fuck) => {return [].concat(...fuck)};
+
+// Mento
+
+function flatten( ...args ) {
+  let returnArray = [];
+  for ( let i = 0; i < args.length; i++ ) {
+    if (Array.isArray(args[i])) {
+      returnArray.push(...flatten(...args[i]));
+      console.log('if:', returnArray);
+    } else {
+      returnArray.push(args[i]);
+      console.log('else:', returnArray);
+    }
+  }
+  console.log('return:', returnArray);
+  return returnArray;
+}
+
+console.log(flatten(1, [2, 3], 4, 5, [6, [7]])); // returns [1, 2, 3, 4, 5, 6, 7]
+// console.log(flatten('a', ['b', 2], 3, null, [[4], ['c']])); // returns ['a', 'b', 2, 3, null, 4, 'c']
+
+/*
+--------------
+Next Problem (Wk5-Day 4)
+--------------
+*/
+
+/*
+--------------
+Next Problem (Wk6-Day 1)
+--------------
+*/
+
+/*
+--------------
+Next Problem (Wk6-Day 2)
+--------------
+*/
+
+/*
+--------------
+Next Problem (Wk6-Day 3)
+--------------
+*/
+
+/*
+--------------
+Next Problem (Wk6-Day 4)
+--------------
+*/
