@@ -1287,22 +1287,22 @@ what the expected results would be:
 
 // Mento
 
-function flatten( ...args ) {
-  let returnArray = [];
-  for ( let i = 0; i < args.length; i++ ) {
-    if (Array.isArray(args[i])) {
-      returnArray.push(...flatten(...args[i]));
-      console.log('if:', returnArray);
-    } else {
-      returnArray.push(args[i]);
-      console.log('else:', returnArray);
-    }
-  }
-  console.log('return:', returnArray);
-  return returnArray;
-}
-
-console.log(flatten(1, [2, 3], 4, 5, [6, [7]])); // returns [1, 2, 3, 4, 5, 6, 7]
+// function flatten( ...args ) {
+//   let returnArray = [];
+//   for ( let i = 0; i < args.length; i++ ) {
+//     if (Array.isArray(args[i])) {
+//       returnArray.push(...flatten(...args[i]));
+//       console.log('if:', returnArray);
+//     } else {
+//       returnArray.push(args[i]);
+//       console.log('else:', returnArray);
+//     }
+//   }
+//   console.log('return:', returnArray);
+//   return returnArray;
+// }
+//
+// console.log(flatten(1, [2, 3], 4, 5, [6, [7]])); // returns [1, 2, 3, 4, 5, 6, 7]
 // console.log(flatten('a', ['b', 2], 3, null, [[4], ['c']])); // returns ['a', 'b', 2, 3, null, 4, 'c']
 
 /*
@@ -1310,7 +1310,91 @@ console.log(flatten(1, [2, 3], 4, 5, [6, [7]])); // returns [1, 2, 3, 4, 5, 6, 7
 Next Problem (Wk5-Day 4)
 --------------
 */
+/*
+Write a function that takes a number parameter
+and returns the smallest palindrome number higher than the parameter
+nextPal(11) == 22
+nextPal(188) == 191
+nextPal(191) == 202
+nextPal(2541) == 2552
+*/
 
+// function nextPal( num ) {
+//     do {
+//         num++;
+//         console.log('do:', num);
+//     } while( num !== parseInt(num.toString().split('').reverse().join('') ));
+
+//     return num;
+// }
+
+// Naz
+// function nextPal(num){
+//   let isPalindrome = true;
+//   numString = (num + 1).toString();
+//   for(let i=0; i<numString.length; i++){
+//     if(numString[i] !== numString[numString.length-1-i]){
+//       isPalindrome = false;
+//     }
+//   }
+//   if(isPalindrome){
+//     return num+1;
+//   }else{
+//     return nextPal(num+1);
+//   }
+// }
+
+
+// Nic's
+// function nextPal(num){
+//     do{
+//         num++
+//     } while (num.toString() !== num.toString().split("").reverse().join(""));
+//     return num
+// }
+
+// Dontavious
+// let nextPal = (num) => {
+
+//   num = num.toString();
+//   let newNum = num.split('').reverse().join('');
+
+//   if ( num !== newNum ) {
+//     console.log('Number is not a palindrome.')
+//     // Can't even get this part to work
+//   }
+
+// }
+
+// nextPal(11);
+
+// Dominic's
+// function nextPalindrome(number) {
+//     // var numberString = number.toString();
+//     var evenNumbers = num % 2 === 0;
+//     var oddNumbers = num % 2 !== 0;
+//     // leftHalf
+//     // middleNumber
+
+//     if ( oddNumbers ) {
+
+//     } else {
+
+//     }
+
+//     if ( something > number) {
+
+//     }
+
+//     if (middle ) {
+
+//     }
+// }
+
+// console.log(nextPal(11)); // == 22
+// console.log(nextPal(188)); // == 191
+// console.log(nextPal(191)); // == 202
+// console.log(nextPal(2541)); // == 2552
 /*
 --------------
 Next Problem (Wk6-Day 1)
