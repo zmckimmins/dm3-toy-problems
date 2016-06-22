@@ -1570,6 +1570,80 @@ Next Problem (Wk6-Day 3)
 */
 
 /*
+Add a groupBy method to Array.prototype so that elements in an array could be grouped by the result of evaluating a function on each element.
+The method should return an object, in which for each different value returned by the function there is a property whose value is the array of elements that return the same value.
+If no function is passed, the element itself should be taken.
+*/
+
+// Solution 1
+// Array.prototype.groupBy = function(fn) {
+//   if (fn == null) {
+//     fn = x => x
+//   }
+//   return this.reduce( (groups, val) => {
+//     let key = fn(val)
+//     groups[key] ? groups[key].push(val) : groups[key] = [val]
+//     return groups
+//   }, {})
+// }
+
+// Solution 2
+// Array.prototype.groupBy = function( fn ) {
+//  let grouped = {};
+
+//  if ( !fn ) { // if there's no fn
+//   this.forEach( item => grouped.hasOwnProperty( item ) ? grouped[item].push( item ) : grouped[item] = [item]);
+//   // 'this' is equal to the array
+
+//  } else { //otherwise, run each item through fn
+//   this.forEach( item => grouped.hasOwnProperty( fn( item ) ) ? grouped[fn( item )].push( item ) : grouped[ fn( item )] = [item]);
+//  }
+
+//  return grouped;
+// }
+
+// Nic's
+// Array.prototype.groupBy = function ( cb ){
+//     ans = {};
+//     function inner(value, key){
+//             if(!ans[value]){
+//                 ans[value] = [];
+//             }
+//             ans[value].push(key);
+//     }
+//     for(let i = 0; i < this.length; i++){
+//         if(!cb){
+//             let val = this[i]
+//             inner( val, val );
+//         }else{
+//         let val = cb(this[i]);
+//         inner( val, this[i] );
+//         }
+//     }
+//     return ans;
+// };
+
+
+
+// console.log("line 15:", [1,2,3,2,4,1,5,1,6].groupBy());
+// returns
+// {
+//   1: [1, 1, 1],
+//   2: [2, 2],
+//   3: [3],
+//   4: [4],
+//   5: [5],
+//   6: [6]
+// }
+// console.log("line 16:", [1,2,3,2,4,1,5,1,6].groupBy(function(val) { return val % 3;} ));
+// returns
+// {
+//   0: [3, 6],
+//   1: [1, 4, 1, 1],
+//   2: [2, 2, 5]
+// }
+
+/*
 --------------
 Next Problem (Wk6-Day 4)
 --------------
