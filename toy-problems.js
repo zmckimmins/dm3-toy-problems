@@ -1485,6 +1485,85 @@ Next Problem (Wk6-Day 2)
 */
 
 /*
+Write a function that takes in an array of objects, each with a name property, and creates a new array
+of objects based on their structure. The strings will be seperated by '/''s.
+
+var data = [
+  {
+    name: 'App/AFCU/sanity'
+  },
+  {
+    name: 'App/AFCU/product/'
+  },
+  {
+    name: 'Mobile/somethingElse/'
+  }
+];
+
+formatter( data )
+//returns
+[
+  {
+      name: 'App'
+    , children: [
+        {
+            name: 'AFCU'
+          , children: [
+              {
+                name: 'sanity'
+              }
+              , {
+                name: 'product'
+              }
+            ]
+        }
+      ]
+  }
+  , {
+    name: 'Mobile'
+    , children: [{ name: 'somethingElse' }]
+  }
+]
+*/
+
+// var data = [
+//   {
+//     name: 'App/AFCU/sanity'
+//   },
+//   {
+//     name: 'App/AFCU/product/'
+//   },
+//   {
+//     name: 'Mobile/somethingElse/'
+//   }
+// ];
+//
+// function formatter( input ) {
+//   function innerFormatter( string, arr ) {
+//     if ( string ) {
+//       let   strArr = string.split('/')
+//           , curr = strArr.shift();
+//       for ( let i = 0; i < arr.length; i++ ) {
+//         if ( arr[i].name === curr ) {
+//           return innerFormatter( strArr.join('/'), arr[i].children );
+//         }
+//       }
+//       arr.push({
+//           name: curr
+//         , children: []
+//       });
+//       return innerFormatter(strArr.join('/'), arr[arr.length - 1].children)
+//     }
+//     return arr;
+//   }
+//   let returnArr = [];
+//   input.forEach( string => returnArr.push(innerFormatter( string.name, returnArr )) );
+//
+//   return returnArr.filter( element => element.length !== 0 );
+// }
+//
+// console.log(formatter(data));
+/*
 --------------
 Next Problem (Wk6-Day 3)
 --------------
