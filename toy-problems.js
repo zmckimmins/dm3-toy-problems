@@ -1648,3 +1648,62 @@ If no function is passed, the element itself should be taken.
 Next Problem (Wk6-Day 4)
 --------------
 */
+
+// Write a function that returns the maximum element (or element-based computation) in an array.
+
+// Shakib's
+// function max(array, cb){
+//     var largest = 0;
+//     if(!cb){
+//         for(let i=0; i<array.length; i++){
+//             if(array[i] > largest){
+//                 largest = array[i];
+//             }
+//         }
+//         return largest;
+//     }
+//     else{
+//         for(let i=array.length-1; i>=0; i--){
+//             if(cb(array[i]) === 1){
+//                 return array[i];
+//             }
+//         }
+//     }
+// }
+
+// Nic's
+// function max( arr, cb ){
+//     if(!cb){
+//         cb = function(x){
+//             return x;
+//         }
+//     }
+//     let num = 0;
+//     arr.reduce((prev, curr, idx) => {
+//         if( cb( curr) > cb(prev)) {
+//             num = curr;
+//             return curr
+//         }
+//         return curr;
+//     } );
+//     return num;
+// }
+
+// Nic's with ternary
+// function max( arr, cb ){
+//     if(!cb){
+//         cb = function(x){
+//             return x;
+//         }
+//     }
+//     let num = arr[0];
+//     arr.reduce((prev, curr, idx) => {
+//         cb( curr) > cb(prev)? num = curr : curr;
+//         return curr;
+//     } );
+//     return num;
+// }
+
+// console.log(max([99, 10, 1])); // 99
+// console.log(max( [ -1, -10, -99 ] ));
+// console.log(max([1, 10, 99], item => item > 1 && item < 50 ? 1 : 0)); // 10
